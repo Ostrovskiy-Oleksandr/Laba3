@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Менеджер</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='/style.css'>
+</head>
+<body>
+    <div class="container">
+        <h2>Менеджер завдань</h2>
+        <form action="/addtask" method="POST">
+            <input class="input-task" type="text" name="newtask" placeholder="Введіть нове завдання">
+            <button>Додати</button>
+            <h2>Завдання</h2>
+
+            <% for( var i = 0; i < tasks.length; i++){ %>
+                <li><input class="checkbox" type="checkbox" name="check" value="<%= tasks[i] %>" /> <%= tasks[i] %> </li>
+            <% } %>
+
+            <button formaction="/deletetask" type="submit">Готово</button>
+        </form>
+        <h2>Виконані завдання</h2>
+        <% for(let i = 0; i < completed.length; i++){ %>
+            <li><input class="checkbox" type="checkbox" checked><%= completed[i] %> </li>
+        <% } %>
+    </div>
+</body>
+</html>
